@@ -1,8 +1,6 @@
-/*
+package edu.neu.coe.info6205.randomwalk;/*
  * Copyright (c) 2017. Phasmid Software
  */
-
-package edu.neu.coe.info6205.randomwalk;
 
 import java.util.Random;
 
@@ -21,6 +19,8 @@ public class RandomWalk {
      */
     private void move(int dx, int dy) {
         // TO BE IMPLEMENTED
+        this.x += dx;
+        this.y += dy;
     }
 
     /**
@@ -30,6 +30,9 @@ public class RandomWalk {
      */
     private void randomWalk(int m) {
         // TO BE IMPLEMENTED
+        for (int i = 0; i < m; i++) {
+            randomMove();
+        }
     }
 
     /**
@@ -49,7 +52,10 @@ public class RandomWalk {
      */
     public double distance() {
         // TO BE IMPLEMENTED
-        return 0;
+//        throw new UnsupportedOperationException("Not implemented yet");
+        double x = this.x * this.x;
+        double y = this.y * this.y;
+        return Math.sqrt(x + y);
     }
 
     /**
@@ -70,13 +76,23 @@ public class RandomWalk {
     }
 
     public static void main(String[] args) {
-        if (args.length == 0)
-            throw new RuntimeException("Syntax: RandomWalk steps [experiments]");
-        int m = Integer.parseInt(args[0]);
+//        if (args.length == 0)
+//            throw new RuntimeException("Syntax: RandomWalk steps [experiments]");
+//        int m = Integer.parseInt(args[0]);
+//        int n = 30;
+//        if (args.length > 1) n = Integer.parseInt(args[1]);
+
+
         int n = 30;
-        if (args.length > 1) n = Integer.parseInt(args[1]);
-        double meanDistance = randomWalkMulti(m, n);
-        System.out.println(m + " steps: " + meanDistance + " over " + n + " experiments");
-    }
+        int[] arr = new int[]{10, 20, 50, 100, 1000, 10000};
+        for (int i = 0; i < arr.length; i++) {
+            double meanDistance = randomWalkMulti(arr[i], n);
+            System.out.println(i + " time:" + arr[i] + " steps, " + meanDistance + " over " + n + " experiments");
+        }
+
+
+
+      }
 
 }
+
