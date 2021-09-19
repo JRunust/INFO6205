@@ -84,7 +84,7 @@ public class RandomWalk {
 
 
         int n = 30;
-        int[] arr = new int[]{10, 20, 50, 100, 1000, 10000};
+        int[] arr = new int[]{10, 20, 50, 100,150,200,300,350,450,500,650,700,800,850,900,1000, 10000};
         for (int i = 0; i < arr.length; i++) {
             double meanDistance = randomWalkMulti(arr[i], n);
             System.out.println(i + " time:" + arr[i] + " steps, " + meanDistance + " over " + n + " experiments");
