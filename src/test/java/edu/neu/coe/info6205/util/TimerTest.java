@@ -146,7 +146,9 @@ public class TimerTest {
 
     private void GoToSleep(long mSecs, int which) {
         try {
+            System.out.println("1 "+System.currentTimeMillis());
             Thread.sleep(mSecs);
+            System.out.println("2 "+System.currentTimeMillis());
             if (which == 0) run++;
             else if (which > 0) post++;
             else pre++;
