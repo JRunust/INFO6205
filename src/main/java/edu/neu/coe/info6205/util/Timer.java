@@ -55,11 +55,11 @@ public class Timer {
     public <T, U> double repeat(int n, Supplier<T> supplier, Function<T, U> function, UnaryOperator<T> preFunction, Consumer<U> postFunction) {
         logger.trace("repeat: with " + n + " runs");
         // TO BE IMPLEMENTED: note that the timer is running when this method is called and should still be running when it returns.
-        pause();
-        T t = supplier.get();
-        resume();
-        for(int i = 0; i < n; i++) {
 
+        for(int i = 0; i < n; i++) {
+            pause();
+            T t = supplier.get();
+            resume();
             if(preFunction != null)
             {
                 pause();
@@ -132,7 +132,6 @@ public class Timer {
      * @throws TimerException if this Timer is not running.
      */
     public void  lap() {
-        if (!running) throw new TimerException();
         laps++;
     }
 

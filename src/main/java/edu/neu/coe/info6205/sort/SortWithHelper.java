@@ -31,7 +31,7 @@ public abstract class SortWithHelper<X extends Comparable<X>> implements Sort<X>
 
     /**
      * Perform initializing step for this Sort.
-     *
+     *g
      * @param n the number of elements to be sorted.
      */
     @Override
